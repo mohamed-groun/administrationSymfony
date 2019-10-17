@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+
+
+    <div class="row">
+        <a href="{{ path('actualite_new') }}">
+            <input type="button" class="btn btn-primary" value="Create a new Actualite" style="cursor: pointer;     margin-left: 6%; margin-bottom: 11%;">
+        </a>
+    </div><br> <br>
+
+    <div class="row">
+    {% for actualite in actualites %}
+
+            <div class="col-md-3">
+                <h4> {{ actualite.titre }}</h4>
+
+                <div class="card" style="width:400px">
+                    <img class="card-img-top" src="/news/{{ actualite.photo }}" alt="Card image" style="width:100%;    height: 225px;">
+                    <div class="card-body">
+                        <a href="{{ path('actualite_edit', { 'id': actualite.id }) }}" class="btn btn-info">edit </a>
+                        <a href="{{ path('Delete2', { 'id': actualite.id }) }}" class="btn btn-danger">Delete </a>
+
+                    </div>
+                </div>
+                <br>
+            </div>
+
+
+    {% endfor %}
+    </div>
+    <hr>
+    </div>
+
+
+
+
+
+
+{% endblock %}

@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Actualite</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ actualite.id }}</td>
+            </tr>
+            <tr>
+                <th>Photo</th>
+                <td>{{ actualite.photo }}</td>
+            </tr>
+            <tr>
+                <th>Lien</th>
+                <td>{{ actualite.lien }}</td>
+            </tr>
+            <tr>
+                <th>Titre</th>
+                <td>{{ actualite.titre }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ actualite.description }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('actualite_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('actualite_edit', { 'id': actualite.id }) }}">Edit</a>
+        </li>
+        <li>
+
+        </li>
+    </ul>
+{% endblock %}

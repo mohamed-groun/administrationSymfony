@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+
+
+    <div class="row">
+        <a href="{{ path('convention_new') }}">
+            <input type="button" class="btn btn-primary" value="Create a new convention" style="cursor: pointer;     margin-left: 6%; margin-bottom: 11%;">
+        </a>
+    </div><br> <br>
+
+    <div class="row">
+        {% for convention in conventions %}
+
+            <div class="col-md-3">
+                <h4> {{ convention.titre }}</h4>
+
+                <div class="card" style="width:400px">
+                    <img class="card-img-top" src="http://administration.3dfordeco.com/images/Conventions/{{ convention.photo }}" alt="Card image" style="width:100%;    height: 225px;">
+                    <div class="card-body">
+                        <a href="{{ path('convention_edit', { 'id': convention.id }) }}" class="btn btn-info">edit </a>
+                        <a href="{{ path('Delete2', { 'id': convention.id }) }}" class="btn btn-danger">Delete </a>
+
+                    </div>
+                </div>
+                <br>
+            </div>
+
+
+        {% endfor %}
+    </div>
+    <hr>
+    </div>
+
+
+
+
+
+
+{% endblock %}

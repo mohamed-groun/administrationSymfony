@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-tagsinput/0.8.0/bootstrap-tagsinput.css" rel="stylesheet" />
+    <h1></h1>
+<div class="col-md-3"></div>
+ <div class="col-md-4">
+{% form_theme form 'bootstrap_4_layout.html.twig' %}
+<div class="form-group">
+  {{ form_start(form) }}
+
+        {{ form_row(form.nomc) }}
+
+     {{ form_row(form.type , {'attr': {'data-role': 'tagsinput'}}) }}
+     {{ form_row(form.url) }}
+
+        <input type="submit" class="btn btn-success" value="Create" />
+        <a href="{{ path('clients_index') }}"><input  type="button" class="btn btn-primary" value="Back to the list" style="cursor: pointer;"/></a>
+    {{ form_end(form) }}
+
+    </div>
+
+{% form_theme form 'bootstrap_4_horizontal_layout.html.twig' %}
+   </div>
+<style>
+    label.required {
+        width: 100%;
+    }
+</style>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-tagsinput/0.8.0/bootstrap-tagsinput.min.js"></script>
+
+{% endblock %}

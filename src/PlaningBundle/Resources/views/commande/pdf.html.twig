@@ -1,0 +1,273 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" >
+
+
+</head>
+<body>
+<div class="container">
+<div class="col-md-2"></div>
+<div class="col-md-8">
+
+
+
+
+    <div class="row" id="validation">
+        <div class="col-12">
+
+            <div class="card wizard-content">
+                <div class="card-body">
+                    <h4 class="card-title" style=" text-align: center; font-size: 21px;"> Détails commande </h4>
+
+                    <hr class="style-seven">
+
+                    <section>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="wlocation2"> Nom du  Client : <span class="danger"></span> </label>
+                                    {{ commande.nom }}
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="wlastName2"> Désignation de commande: <span class="danger"></span> </label>
+                                    <div class="table-responsive">
+                                        <table class="table " id="dynamic_field">
+                                            <tr>
+                                                <td>
+                                                    {{ commande.designation|join('\n')| nl2br }}
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="wlastName2"> Réferent Client : <span class="danger"> </span> </label><br>
+                                    <table class="table " id="dynamic_field">
+                                        <tr>
+                                            <td>
+                                    {{ commande.ref|join('\n')| nl2br }}
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="wlastName2"> Numéro du Devis: <span class="danger"></span> </label><br>
+                                    <table class="table " id="dynamic_field">
+                                        <tr>
+                                            <td>
+                                     {{ commande.devis|join('\n')| nl2br }}
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="wlocation2">  Commercial : <span class="danger"> </span> </label>
+                                    {{ commande.commercial }}
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <div class="form-group">
+                                        <label for="wlocation2">  Account Manager : <span class="danger"> </span> </label>
+                                        {{ commande.manager }}
+                                    </div>
+                                </div>
+                            </div>
+                    </section>
+                    <!-- Step 2 -->
+
+                    <section>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+
+                                    <label for="jobTitle2">Date reception Brief :</label>
+                                    {{ commande.brief }}
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="webUrl3">Date reception Echantillons :</label>
+                                    {{ commande.reception }}
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="shortDescription3">Date de lancement de prod :</label>
+                                    {{ commande.delancement }}
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="shortDescription3">Deadline :</label>
+                                    {{ commande.deadline }}
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    <!-- Step 3 -->
+
+                    <section>
+                        <div class="row">
+                            <div class="col-md-6" style="background-color: honeydew;">
+                                <div class="form-group">
+                                    <label for="shortDescription3">Produits :</label>
+                                    <div class="form-group">
+                                        <label for="participants1">Nom du produit </label>
+                                        {{ commande.produit }}
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="participants1">Livrable :</label>
+
+                                        <div class="table-responsive">
+                                            <table class="table " id="dynamic_field4">
+                                                <tr>
+                                                    <td> {{ commande.livrable|join('\n')| nl2br }} </td>
+                                                </tr>
+                                            </table>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="participants1">Quantite :</label>
+                                        {{ commande.quantite }}
+                                    </div>
+
+                                </div>
+
+                            </div>
+                            <div class="col-md-6" style="    background-color: bisque;">
+                                <div class="form-group">
+                                    <label for="wlocation2">  Equipes : <span class="danger"> </span> </label><br>
+                                    {{ commande.equipe|join('\n')| nl2br }}
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </section>
+                    <!-- Step 4 -->
+
+                    <section>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="wlocation2">  Manager : <span class="danger"> </span> </label>
+
+                                    {{ commande.managr }}
+                                </div>
+
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="wlocation2">  DA : <span class="danger"> </span> </label>
+                                    {{ commande.da }}
+                                </div>
+
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="behName1">Lien de dossier : </label>
+                                    {{ commande.lien }}
+                                </div>
+                                <div class="form-group">
+                                    <label for="behName1">Lien de dossier : </label>
+                                    {{ commande.lienEspace }}
+                                </div>
+                                <div class="form-group">
+                                    <label for="behName1">Lien de dossier : </label>
+                                    {{ commande.lienProd }}
+                                </div>
+                                <div class="form-group">
+                                    <label for="participants1">Etat d'avancement</label>
+
+                                    <div>{{ commande.avancement }} % </div>
+                                </div>
+
+                            </div>
+
+
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="decisions1">Comments</label><br>
+                                    {{  commande.commentaire }}
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </section>
+
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+</div>
+<style>
+    select.form-control[multiple], select.form-control[size], textarea.form-control {
+        height: 130px;
+    }
+    label.required {
+        display: none;
+    }
+    /* Flaired edges, by Tomas Theunissen */
+
+    hr.style-seven {
+        overflow: visible; /* For IE */
+        height: 30px;
+        border-style: solid;
+        border-color: black;
+        border-width: 1px 0 0 0;
+        border-radius: 20px;
+    }
+    hr.style-seven:before { /* Not really supposed to work, but does */
+        display: block;
+        content: "";
+        height: 30px;
+        margin-top: -31px;
+        border-style: solid;
+        border-color: black;
+        border-width: 0 0 1px 0;
+        border-radius: 20px;
+    }
+</style>
+
+
+
+<style>
+    .table td, .table th {
+        padding: 0rem;
+        vertical-align: middle;
+    }
+</style>
+
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" ></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" ></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" ></script>
+</body>
+</html>

@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+{% block stylesheets %}
+    {{ parent() }}
+    <style>
+        textarea {
+            height: 91px!important;
+        }
+        ul {
+            list-style-type:none;
+            position: relative;
+            top: -49px;
+            left: 27px;
+
+        }
+
+    </style>
+{% endblock %}
+{% block body %}
+    <div class="col-4"></div>
+<div class="col-4">
+
+    {{ form_start(edit_form) }}
+    {{ form_row(edit_form.photo2) }}
+    {{ form_row(edit_form.lien) }}
+    {{ form_row(edit_form.titre) }}
+    {{ form_row(edit_form.description) }}
+
+        {{ form_widget(edit_form) }}
+
+        <input type="submit" value="Edit" class="btn btn-success" />
+    {{ form_end(edit_form) }}
+
+    <ul>
+        <li>
+            <a href="{{ path('actualite_index') }}">
+                <input type="button" class="btn btn-primary" value="Back to the list" style="cursor: pointer; ">
+            </a>
+        </li>
+
+    </ul>
+</div>
+
+{% endblock %}

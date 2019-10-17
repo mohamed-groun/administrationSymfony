@@ -1,0 +1,295 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+    <link href="../assets/node_modules/wizard/steps.css" rel="stylesheet">
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-tagsinput/0.8.0/bootstrap-tagsinput.css" rel="stylesheet" />
+
+    <div class="col-md-2"></div>
+ <div class="col-md-8">
+    {{ form_start(edit_form) }}
+
+
+
+         <div class="row" id="validation">
+             <div class="col-12">
+
+                 <div class="card wizard-content">
+                     <div class="card-body">
+                         <h4 class="card-title" style=" text-align: center; font-size: 21px;">Commande </h4>
+
+
+                         <hr class="style-seven">
+
+                             <section>
+                                 <div class="row">
+                                     <div class="col-md-6">
+                                         <div class="form-group">
+                                             <label for="wlocation2"> Select Client : <span class="danger">*</span> </label>
+                                             {{ form_widget(edit_form.nom) }}
+                                         </div>
+                                     </div>
+
+                                     <div class="col-md-6">
+                                         <div class="form-group">
+                                             <label for="wlastName2"> Désignation de commande: <span class="danger">*</span> </label>
+                                             <div class="table-responsive">
+                                                 <table class="table " id="dynamic_field">
+                                                     <tr>
+                                                         <td>{{ form_widget(edit_form.designation) }}</td>
+                                                     </tr>
+                                                 </table>
+                                             </div>
+                                         </div>
+                                     </div>
+                                 </div>
+                                 <div class="row">
+                                     <div class="col-md-6">
+                                         <div class="form-group">
+
+
+                                             <label for="wlastName2"> Réferent Client: <span class="danger">*</span> </label>
+                                             <div class="table-responsive">
+
+                                                 <table class="table " id="dynamic_field2">
+                                                     <tr>
+                                                         <td>
+
+                                                             <input type="text" value="{{ ref }}" data-role="tagsinput" placeholder="add tags">
+                                                         </td>
+                                                     </tr>
+                                                 </table>
+                                             </div>
+                                         </div>
+                                     </div>
+
+                                     <div class="col-md-6">
+                                         <div class="form-group">
+                                             <label for="wlastName2"> Numéro du Devis: <span class="danger">*</span> </label>
+                                             <div class="table-responsive">
+                                                 <table class="table " id="dynamic_field3">
+                                                     <tr>
+
+                                                         <td>{{ form_widget(edit_form.devis) }}</td>
+                                                     </tr>
+                                                 </table>
+                                             </div>
+                                         </div>
+                                     </div>
+                                 </div>
+                                 <div class="row">
+                                     <div class="col-md-6">
+                                         <div class="form-group">
+                                             <label for="wlocation2"> Select Commercial : <span class="danger">*</span> </label>
+                                             {{ form_widget(edit_form.commercial) }}
+                                         </div>
+                                     </div>
+                                     <div class="col-md-6">
+                                         <div class="form-group">
+                                             <div class="form-group">
+                                                 <label for="wlocation2"> Select Account Manager : <span class="danger">*</span> </label>
+                                                 {{ form_widget(edit_form.managr) }}
+                                             </div>
+                                         </div>
+                                     </div>
+                             </section>
+                             <!-- Step 2 -->
+                         <hr class="style-seven">
+                             <section>
+                                 <div class="row">
+                                     <div class="col-md-6">
+                                         <div class="form-group">
+
+                                             <label for="jobTitle2">Date reception Brief :</label>
+                                             {{ form_widget(edit_form.brief) }}
+                                         </div>
+                                     </div>
+                                     <div class="col-md-6">
+                                         <div class="form-group">
+                                             <label for="webUrl3">Date reception Echantillons :</label>
+                                             {{ form_widget(edit_form.reception) }}
+                                         </div>
+                                     </div>
+                                     <div class="col-md-6">
+                                         <div class="form-group">
+                                             <label for="shortDescription3">Date de lancement de prod :</label>
+                                             {{ form_widget(edit_form.delancement) }}
+                                         </div>
+                                     </div>
+                                     <div class="col-md-6">
+                                         <div class="form-group">
+                                             <label for="shortDescription3">Deadline :</label>
+                                             {{ form_widget(edit_form.deadline) }}
+                                         </div>
+                                     </div>
+                                 </div>
+                             </section>
+                             <!-- Step 3 -->
+                         <hr class="style-seven">
+                             <section>
+                                 <div class="row">
+                                     <div class="col-md-6" style="background-color: honeydew;">
+                                         <div class="form-group">
+                                             <label for="shortDescription3">selection des produits :</label>
+                                             <div class="form-group">
+                                                 <label for="participants1">Nom du produit </label>
+                                                 {{ form_widget(edit_form.produit) }}
+                                             </div>
+                                             <div class="form-group">
+                                                 <label for="participants1">Livrable</label>
+
+                                                 <div class="table-responsive">
+                                                     <table class="table " id="dynamic_field4">
+                                                         <tr>
+
+                                                             <td>  {{ form_widget(edit_form.livrable) }}</td>
+                                                         </tr>
+                                                     </table>
+                                                 </div>
+                                             </div>
+
+                                             <div class="form-group">
+                                                 <label for="participants1">Quantite</label>
+                                                 {{ form_widget(edit_form.quantite) }}
+                                             </div>
+
+                                         </div>
+
+                                     </div>
+                                     <div class="col-md-6" style="    background-color: bisque;">
+                                         <div class="form-group">
+                                             <label for="wlocation2"> Select equipes : <span class="danger">*</span> </label>
+                                             {{ form_widget(edit_form.equipe) }}
+                                         </div>
+
+                                     </div>
+
+                                 </div>
+                             </section>
+                             <!-- Step 4 -->
+                             <hr class="style-seven">
+                             <section>
+                                 <div class="row">
+                                     <div class="col-md-6">
+                                         <div class="form-group">
+                                             <label for="wlocation2"> Select Manager : <span class="danger">*</span> </label>
+                                             {{ form_widget(edit_form.manager) }}
+
+                                         </div>
+
+                                     </div>
+                                     <div class="col-md-6">
+                                         <div class="form-group">
+                                             <label for="participants1">Etat d'avancement</label>
+
+                                             <div>{{ form_widget(edit_form.avancement) }} </div>
+                                         </div>
+                                         <div class="form-group">
+                                             <label for="wlocation2"> Select DA : <span class="danger">*</span> </label>
+                                             {{ form_widget(edit_form.da) }}
+                                         </div>
+
+                                     </div>
+                                     <div class="col-md-6">
+                                         <div class="form-group">
+                                             <label for="behName1">Lien de dossier :</label>
+                                             {{ form_widget(edit_form.lien) }}
+                                         </div>
+                                         <div class="form-group">
+                                             <label for="behName1">Lien espace client :</label>
+                                             {{ form_widget(edit_form.lienEspace) }}
+                                         </div>
+                                         <div class="form-group">
+                                             <label for="behName1">Lien prod :</label>
+                                             {{ form_widget(edit_form.lienProd) }}
+                                         </div>
+
+
+                                    </div>
+
+                                     <div class="col-md-6">
+                                         <div class="form-group">
+                                             <label for="decisions1">Comments</label>
+                                            {{ form_widget(edit_form.commentaire) }}
+                                         </div>
+
+                                     </div>
+
+                                 </div>
+
+                             </section>
+                         <hr class="style-seven">
+                         <section>
+                             <div class="row">
+                                 <div class="col-md-6">
+                                     <div class="form-group">
+                                         <label for="wlocation2">statut : <span class="danger"> </span> </label>
+                                         {{ form_widget(edit_form.statut) }}
+
+                                     </div>
+
+                                 </div>
+                                 <div class="col-md-6">
+                                     <div class="form-group">
+                                         <label for="wlocation2">Raisons : <span class="danger"> </span> </label>
+                                         {{ form_widget(edit_form.raison) }}
+                                     </div>
+
+                                 </div>
+
+                             </div>
+
+                         </section>
+                         <hr class="style-seven">
+
+                     <input type="submit" class="btn btn-success" value="Edit"  />
+                     <a href="{{ path('commande_index') }}"><input type="button"  class="btn btn-primary" value="Back to the list" style="    cursor: pointer;"/></a>
+                     {{ form_end(edit_form) }}
+                     </div>
+                 </div>
+             </div>
+
+         </div>
+ </div>
+<style>
+    select.form-control[multiple], select.form-control[size], textarea.form-control {
+        height: 130px;
+    }
+    label.required {
+        display: none;
+    }
+    /* Flaired edges, by Tomas Theunissen */
+
+    hr.style-seven {
+        overflow: visible; /* For IE */
+        height: 30px;
+        border-style: solid;
+        border-color: black;
+        border-width: 1px 0 0 0;
+        border-radius: 20px;
+    }
+    hr.style-seven:before { /* Not really supposed to work, but does */
+        display: block;
+        content: "";
+        height: 30px;
+        margin-top: -31px;
+        border-style: solid;
+        border-color: black;
+        border-width: 0 0 1px 0;
+        border-radius: 20px;
+    }
+</style>
+
+
+
+    <style>
+        .table td, .table th {
+            padding: 0rem;
+            vertical-align: middle;
+        }
+    </style>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-tagsinput/0.8.0/bootstrap-tagsinput.min.js"></script>
+
+{% endblock %}
